@@ -3,3 +3,21 @@
   margin-right: 30px;
   width: 200px;
 }
+
+.mycontainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* genau 3 Spalten */
+  gap: 1rem;
+  /* Abstand zwischen den Karten */
+  padding: 1rem;
+  /* optionaler Abstand zum Rand */
+}
+
+@media only screen and (max-width: 950px) {
+  .mycontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
