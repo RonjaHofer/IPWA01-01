@@ -9,7 +9,6 @@ function checkEingabe() {
 
         if (!checkPlz()) {
 
-            ;
             plzAbholadresse.classList.add("is-invalid");
 
             valid = false;
@@ -18,34 +17,34 @@ function checkEingabe() {
             plzAbholadresse.classList.remove("is-invalid");
 
         }
-    
-    
-    const strHNr = document.getElementById("strHNr");
 
-    if (strHNr.value.trim() === "") {
-        // Feld ist leer
 
-        strHNr.classList.add("is-invalid");
-        valid = false;
-    } else {
-        strHNr.classList.remove("is-invalid");
+        const strHNr = document.getElementById("strHNr");
+
+        if (strHNr.value.trim() === "") {
+            // Feld ist leer
+
+            strHNr.classList.add("is-invalid");
+            valid = false;
+        } else {
+            strHNr.classList.remove("is-invalid");
+        }
+
+        const ort = document.getElementById("ort");
+
+        if (ort.value.trim() === "") {
+            // Feld ist leer
+
+            ort.classList.add("is-invalid");
+            valid = false;
+        } else {
+            ort.classList.remove("is-invalid");
+        }
+
+
     }
 
-    const ort = document.getElementById("ort");
 
-    if (ort.value.trim() === "") {
-        // Feld ist leer
-
-        ort.classList.add("is-invalid");
-        valid = false;
-    } else {
-        ort.classList.remove("is-invalid");
-    }
-
-    
-    }
-
-    
     const artDerKleidung = document.getElementById("artDerKleidung1");
 
     if (artDerKleidung.value.trim() === "") {
@@ -102,6 +101,12 @@ function checkPlz() {
 
     // Vorherige Meldung zurücksetzen
     fehlerFeld.textContent = "";
+    // Eingabe prüfen: genau 5 Ziffern?
+    if (!/^\d{5}$/.test(plzAb)) {
+        fehlerFeld.textContent = "❌ Bitte eine gültige 5-stellige Postleitzahl eingeben!";
+        fehlerFeld.style.color = "red";
+        return false; // Abbruch, da PLZ ungültig
+    }
     // Jede Station einzeln prüfen
     for (let i = 0; i < plzGe.length; i++) {
         let stationPrefix = plzGe[i].substring(0, 2);
