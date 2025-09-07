@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const hnr = params.get("strHNr");
     const plz = params.get("plz");
     const ort = params.get("ort");
-
+    
+    // Prüfung ob in plz ein Wert hinterlegt ist
     if(plz != "") {
         document.getElementById("adresse").style.display = "block";
         document.getElementById("outStrHNr").textContent = hnr
